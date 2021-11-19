@@ -1,10 +1,9 @@
 (defun plantuml-page-preview (prefix)
   (interactive "p")
-  (let ((p (point)))
+  (save-excursion
     (plantuml-page-select)
     (plantuml-preview prefix)
-    (deactivate-mark)
-    (goto-char p)))
+    (deactivate-mark)))
 (defun plantuml-page-next ()
   (interactive) (re-search-forward "\\(newpage\\|@enduml\\)" nil 1))
 (defun plantuml-page-previous ()
